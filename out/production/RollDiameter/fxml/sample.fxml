@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" gridLinesVisible="false" hgap="0.0" minWidth="20.0" stylesheets="/css/sample.css" vgap="0.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Label alignment="TOP_CENTER" focusTraversable="false" styleClass="title" text="Label Roll Diameter" textAlignment="CENTER" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+            <GridPane.margin>
+                <Insets />
+            </GridPane.margin>
+            <padding>
+                <Insets bottom="20.0" />
+            </padding>
+            <effect>
+                <DropShadow color="#000000d7" offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </Label>
+        <Label focusTraversable="false" text="Label Size:" GridPane.rowIndex="2" />
+        <TextField fx:id="sizeTextField" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="height of label" />
+         </tooltip>
+        </TextField>
+
+        <Label focusTraversable="false" text="Roll Size:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+        <TextField fx:id="diameterTextField" focusTraversable="false" minWidth="-Infinity" prefWidth="60.0" promptText="For Diameter Calculation" styleClass="yellow" text="0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="enter the diameter in inches" />
+         </tooltip>
+        </TextField>
+        <Label focusTraversable="false" text="Roll Qty:" GridPane.rowIndex="3" />
+        <TextField fx:id="qtyTextField" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="labels per roll" />
+         </tooltip>
+        </TextField>
+        <Label focusTraversable="false" text="Laminate:" GridPane.rowIndex="4" />
+        <ChoiceBox fx:id="lamChoiceBox" value="NONE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+
+                    <String fx:value="NONE" />
+                    <String fx:value="Clear/Matte" />
+                    <String fx:value="White" />
+                </FXCollections>
+            </items>
+            <effect>
+                <DropShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <GridPane.margin>
+                <Insets right="10.0" />
+            </GridPane.margin>
+        </ChoiceBox>
+        <Label focusTraversable="false" text="Stock:" GridPane.rowIndex="5" />
+        <TextField fx:id="thicknessTextField" text="0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </TextField>
+        <ChoiceBox fx:id="stockChoiceBox" value="Bopp" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Bopp" />
+                    <String fx:value="Bopp Removable" />
+                    <String fx:value="Matte" />
+                    <String fx:value="Silver" />
+                    <String fx:value="PET" />
+                    <String fx:value="SuperTac" />
+                    <String fx:value="Fluorescent" />
+                    <String fx:value="SemiGloss" />
+                    <String fx:value="Blockout" />
+                </FXCollections>
+            </items>
+            <effect>
+                <DropShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <GridPane.margin>
+                <Insets right="10.0" />
+            </GridPane.margin>
+        </ChoiceBox>
+        <Label focusTraversable="false" text="Core:" GridPane.rowIndex="6" />
+        <TextField fx:id="coreTextField" editable="false" focusTraversable="false" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="3.25" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="default core diameter" />
+         </tooltip>
+        </TextField>
+        <Label focusTraversable="false" text="Order Qty:" GridPane.rowIndex="7" />
+        <TextField fx:id="orderQtyTextField" focusTraversable="true" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="total quantity for order (assuming job being run 1up)" />
+         </tooltip>
+        </TextField>
+        <Button fx:id="diameterButton" mnemonicParsing="false" onAction="#handleDiameter" text="ROLL SIZE" GridPane.rowIndex="8">
+            <effect>
+                <DropShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </Button>
+        <TextField fx:id="diameterEventTextField" editable="false" focusTraversable="false" minWidth="-Infinity" prefWidth="60.0" styleClass="royalblue" text="0.00" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="diameter of roll in inches" />
+         </tooltip>
+        </TextField>
+        <Button fx:id="rollQtyButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleRollQty" text="ROLL QTY" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+            <effect>
+                <DropShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </Button>
+        <TextField fx:id="rollEventTextField" editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" prefWidth="60.0" styleClass="yellow" text="0.00" GridPane.columnIndex="3" GridPane.rowIndex="8">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="number of labels on a roll" />
+         </tooltip>
+        </TextField>
+        <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClear" text="CLEAR" textFill="#f80000" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+            <effect>
+                <DropShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </Button>
+        <Button fx:id="customButton" mnemonicParsing="false" onAction="#handleCustom" text="Custom..." textFill="#0410eb" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.rowSpan="2147483647">
+            <effect>
+                <DropShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </Button>
+        <ImageView fx:id="kermitImageView" fitHeight="117.0" fitWidth="183.0" pickOnBounds="true" smooth="false" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="3" GridPane.vgrow="ALWAYS">
+            <GridPane.margin>
+                <Insets left="10.0" top="30.0" />
+            </GridPane.margin>
+            <image>
+                <Image url="/pictures/KirmitNemo.gif" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="changImageView" fitHeight="117.0" fitWidth="183.0" pickOnBounds="true" smooth="false" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="3" GridPane.vgrow="ALWAYS">
+            <GridPane.margin>
+                <Insets left="10.0" top="30.0" />
+            </GridPane.margin>
+            <image>
+                <Image url="/pictures/ChangNemo.gif" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="jeffImageView" fitHeight="117.0" fitWidth="183.0" pickOnBounds="true" smooth="false" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="3" GridPane.vgrow="ALWAYS">
+            <GridPane.margin>
+                <Insets left="10.0" top="30.0" />
+            </GridPane.margin>
+            <image>
+                <Image url="/pictures/JeffBullets.gif" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="lookImageView" fitHeight="117.0" fitWidth="183.0" pickOnBounds="true" smooth="false" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="3" GridPane.vgrow="ALWAYS">
+            <GridPane.margin>
+                <Insets left="10.0" top="30.0" />
+            </GridPane.margin>
+            <image>
+                <Image url="/pictures/lookwhaticandoo.gif" />
+            </image>
+        </ImageView>
+        <TextField fx:id="minCoreTextField" editable="false" focusTraversable="false" layoutX="278.0" layoutY="209.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="60.0" styleClass="green" text="0" GridPane.columnIndex="3" GridPane.rowIndex="9">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="minimum amount of labels to complete a core change" />
+         </tooltip>
+        </TextField>
+        <Label fx:id="minCoreLabel" alignment="CENTER_RIGHT" contentDisplay="TEXT_ONLY" focusTraversable="false" graphicTextGap="0.0" layoutX="15.0" layoutY="104.0" pickOnBounds="false" text="Min Core Qty:" textAlignment="RIGHT" textFill="#401708" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+        </Label>
+        <Label fx:id="runTimeLabel" alignment="CENTER_RIGHT" focusTraversable="false" text="Run Time:" textAlignment="RIGHT" textFill="#094002" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+        </Label>
+        <TextField fx:id="runTimeTextField" editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" prefWidth="60.0" styleClass="firebrick" text="0" GridPane.columnIndex="3" GridPane.rowIndex="10">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="time in minutes to complete job" />
+         </tooltip>
+        </TextField>
+        <Label focusTraversable="false" text="Mat. Req'd:" GridPane.rowIndex="10" />
+            <TextField fx:id="materialTotalTextField" editable="false" focusTraversable="false" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" styleClass="firebrick" text="0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+         <tooltip>
+            <Tooltip text="Amount of stock required (in feet) to run job" />
+         </tooltip>
+        </TextField>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="70.0" />
+        <ColumnConstraints fillWidth="true" hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="60.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+        <ColumnConstraints minWidth="-Infinity" prefWidth="70.0" />
+    </columnConstraints>
+    <padding>
+        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+    </padding>
+    <rowConstraints>
+        <RowConstraints maxHeight="22.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="22.0" prefHeight="22.0" />
+        <RowConstraints maxHeight="22.0" prefHeight="22.0" />
+        <RowConstraints maxHeight="21.0" prefHeight="21.0" />
+        <RowConstraints maxHeight="22.0" prefHeight="22.0" />
+        <RowConstraints maxHeight="22.0" prefHeight="22.0" />
+        <RowConstraints maxHeight="21.0" prefHeight="21.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>
