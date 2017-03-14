@@ -80,11 +80,11 @@
                 <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
             </effect>
         </TextField>
-        <ChoiceBox fx:id="stockChoiceBox" value="Bopp" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <ChoiceBox fx:id="stockChoiceBox" value="Bopp (79635)" GridPane.columnIndex="1" GridPane.rowIndex="5">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Bopp" />
-                    <String fx:value="Bopp Removable" />
+                    <String fx:value="Bopp (Wassa)" />
+                    <String fx:value="Bopp (79635)" />
                     <String fx:value="Matte" />
                     <String fx:value="Silver" />
                     <String fx:value="PET" />

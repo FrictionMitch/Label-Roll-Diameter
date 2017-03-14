@@ -75,6 +75,7 @@ public class Controller{
     private double mMinQty = 0;
     private double mLabelHeight = 0;
     private int mTotalQty = 0;
+    private int mRunTimeTotal = 0;
 
     public int getTotalQty() {
         return mTotalQty;
@@ -190,7 +191,7 @@ public class Controller{
             stockWidth = Double.parseDouble(thicknessTextField.getText());
         } else {
         switch (stock) {
-            case "Bopp":
+            case "Bopp (Wassa)":
                 if (Double.parseDouble(sizeTextField.getText()) > 5) {
                     stockWidth = 7;
                 } else {
@@ -198,9 +199,9 @@ public class Controller{
                 }
                 break;
 
-            case "Bopp Removable":
+            case "Bopp (79635)":
                 if (Double.parseDouble(sizeTextField.getText()) > 5) {
-                    stockWidth = 6.5;
+                    stockWidth = 6.4;
                 } else {
                     stockWidth = 6;
                 }
