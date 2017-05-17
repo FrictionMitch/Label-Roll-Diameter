@@ -191,19 +191,20 @@ public class Controller{
             stockWidth = Double.parseDouble(thicknessTextField.getText());
         } else {
         switch (stock) {
+
+            case "Bopp (79635)":
+                if (Double.parseDouble(sizeTextField.getText()) > 5) {
+                    stockWidth = 6.2;
+                } else {
+                    stockWidth = 5.5;
+                }
+                break;
+
             case "Bopp (Wassa)":
                 if (Double.parseDouble(sizeTextField.getText()) > 5) {
                     stockWidth = 7;
                 } else {
                     stockWidth = 6.5;
-                }
-                break;
-
-            case "Bopp (79635)":
-                if (Double.parseDouble(sizeTextField.getText()) > 5) {
-                    stockWidth = 6.4;
-                } else {
-                    stockWidth = 6;
                 }
                 break;
 

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" gridLinesVisible="false" hgap="0.0" minWidth="20.0" stylesheets="/css/sample.css" vgap="0.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="CENTER" gridLinesVisible="false" hgap="0.0" minWidth="20.0" stylesheets="/css/sample.css" vgap="0.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <Label alignment="TOP_CENTER" focusTraversable="false" styleClass="title" text="Label Roll Diameter" textAlignment="CENTER" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
             <GridPane.margin>
@@ -48,8 +48,19 @@
             <Tooltip text="enter the diameter in inches" />
          </tooltip>
         </TextField>
-        <Label focusTraversable="false" text="Roll Qty:" GridPane.rowIndex="3" />
-        <TextField fx:id="qtyTextField" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+
+        <Label focusTraversable="false" text="Order Qty:" GridPane.rowIndex="3" />
+        <TextField fx:id="orderQtyTextField" focusTraversable="true" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <effect>
+                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <tooltip>
+                <Tooltip text="total quantity for order (assuming job being run 1up)" />
+            </tooltip>
+        </TextField>
+
+        <Label focusTraversable="false" text="Roll Qty:" GridPane.rowIndex="4" />
+        <TextField fx:id="qtyTextField" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <effect>
                 <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
             </effect>
@@ -57,8 +68,8 @@
             <Tooltip text="labels per roll" />
          </tooltip>
         </TextField>
-        <Label focusTraversable="false" text="Laminate:" GridPane.rowIndex="4" />
-        <ChoiceBox fx:id="lamChoiceBox" value="NONE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Label focusTraversable="false" text="Laminate:" GridPane.rowIndex="5" />
+        <ChoiceBox fx:id="lamChoiceBox" minWidth="-Infinity" prefHeight="26.0" prefWidth="120.0" value="NONE" GridPane.columnIndex="1" GridPane.rowIndex="5">
             <items>
                 <FXCollections fx:factory="observableArrayList">
 
@@ -74,13 +85,13 @@
                 <Insets right="10.0" />
             </GridPane.margin>
         </ChoiceBox>
-        <Label focusTraversable="false" text="Stock:" GridPane.rowIndex="5" />
-        <TextField fx:id="thicknessTextField" text="0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <Label focusTraversable="false" text="Stock:" GridPane.rowIndex="6" />
+        <TextField fx:id="thicknessTextField" text="0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
             <effect>
                 <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
             </effect>
         </TextField>
-        <ChoiceBox fx:id="stockChoiceBox" value="Bopp (79635)" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <ChoiceBox fx:id="stockChoiceBox" minWidth="-Infinity" prefHeight="26.0" prefWidth="120.0" value="Bopp (79635)" GridPane.columnIndex="1" GridPane.rowIndex="6">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Bopp (Wassa)" />
@@ -101,8 +112,8 @@
                 <Insets right="10.0" />
             </GridPane.margin>
         </ChoiceBox>
-        <Label focusTraversable="false" text="Core:" GridPane.rowIndex="6" />
-        <TextField fx:id="coreTextField" editable="false" focusTraversable="false" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="3.25" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Label focusTraversable="false" text="Core:" GridPane.rowIndex="7" />
+        <TextField fx:id="coreTextField" editable="false" focusTraversable="false" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="3.25" GridPane.columnIndex="1" GridPane.rowIndex="7">
             <effect>
                 <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
             </effect>
@@ -110,15 +121,7 @@
             <Tooltip text="default core diameter" />
          </tooltip>
         </TextField>
-        <Label focusTraversable="false" text="Order Qty:" GridPane.rowIndex="7" />
-        <TextField fx:id="orderQtyTextField" focusTraversable="true" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-            <effect>
-                <InnerShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
-            </effect>
-         <tooltip>
-            <Tooltip text="total quantity for order (assuming job being run 1up)" />
-         </tooltip>
-        </TextField>
+
         <Button fx:id="diameterButton" mnemonicParsing="false" onAction="#handleDiameter" text="ROLL SIZE" GridPane.rowIndex="8">
             <effect>
                 <DropShadow color="#00000080" offsetX="5.0" offsetY="5.0" />
